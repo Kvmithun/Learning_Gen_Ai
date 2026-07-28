@@ -1,0 +1,1 @@
+Learning Generative AI from fundamentals to advanced topics with practical implementations, mini-projects, and notes.
