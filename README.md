@@ -1,16 +1,18 @@
+# 🧠 Learning Generative AI
 
-
-
-🧠 Learning Generative AI
-A hands-on journey through Generative AI, LLM applications, RAG, embeddings, agents, evaluation, and production AI systems.
+A hands-on journey through **Generative AI, LLM applications, RAG, embeddings, agents, evaluation, and production AI systems**.
 
 This repository contains my learning notes, experiments, implementations, and mini-projects while progressing from the fundamentals of LLMs to building practical AI applications.
 
-Goal: Understand the concepts deeply, implement them from scratch where possible, and gradually move toward production-ready Generative AI systems.
+> **Goal:** Understand the concepts deeply, implement them from scratch where possible, and gradually move toward production-ready Generative AI systems.
 
-🚀 What I'm Learning
+---
+
+## 🚀 What I'm Learning
+
 The repository is organized as a progressive learning path:
 
+```text
 Generative AI
 │
 ├── 01. Foundations
@@ -103,111 +105,90 @@ Generative AI
     ├── Security
     ├── Deployment
     └── Monitoring
-📚 Learning Roadmap
-1. Foundations
+```
+
+---
+
+# 📚 Learning Roadmap
+
+## 1. Foundations
+
 Building the programming and API foundations required for GenAI development.
 
-Python
+- Python
+- Virtual environments
+- `uv`
+- Project structure
+- Environment variables
+- `.env`
+- HTTP requests
+- REST APIs
+- JSON
+- Pydantic
+- Error handling
+- Git & GitHub
 
-Virtual environments
+---
 
-uv
+## 2. LLM Fundamentals
 
-Project structure
-
-Environment variables
-
-.env
-
-HTTP requests
-
-REST APIs
-
-JSON
-
-Pydantic
-
-Error handling
-
-Git & GitHub
-
-2. LLM Fundamentals
 Understanding what happens when an application communicates with an LLM.
 
-Core concepts
-Tokens
+### Core concepts
 
-Tokenization
+- Tokens
+- Tokenization
+- Context window
+- Input vs output tokens
+- System prompts
+- User messages
+- Assistant messages
+- Temperature
+- Top-p
+- Model selection
+- Latency
+- Streaming
+- API usage
+- Rate limits
+- Cost
 
-Context window
+### Structured Generation
 
-Input vs output tokens
+- JSON outputs
+- Pydantic models
+- Schema validation
+- Structured extraction
+- Reliable application outputs
 
-System prompts
+---
 
-User messages
+# ✍️ Prompt Engineering
 
-Assistant messages
-
-Temperature
-
-Top-p
-
-Model selection
-
-Latency
-
-Streaming
-
-API usage
-
-Rate limits
-
-Cost
-
-Structured Generation
-JSON outputs
-
-Pydantic models
-
-Schema validation
-
-Structured extraction
-
-Reliable application outputs
-
-✍️ Prompt Engineering
 Learning how to communicate with LLMs effectively.
 
 Topics include:
 
-Zero-shot prompting
+- Zero-shot prompting
+- Few-shot prompting
+- Role prompting
+- Instruction hierarchy
+- Prompt templates
+- Prompt chaining
+- Context injection
+- Output constraints
+- Structured prompts
+- ReAct-style workflows
+- Prompt optimization
 
-Few-shot prompting
+The goal is not just to write longer prompts, but to understand **how prompt structure affects model behavior and reliability**.
 
-Role prompting
+---
 
-Instruction hierarchy
+# 🔢 Embeddings
 
-Prompt templates
-
-Prompt chaining
-
-Context injection
-
-Output constraints
-
-Structured prompts
-
-ReAct-style workflows
-
-Prompt optimization
-
-The goal is not just to write longer prompts, but to understand how prompt structure affects model behavior and reliability.
-
-🔢 Embeddings
 Embeddings convert text into numerical vectors that represent semantic meaning.
 
+```text
 "Machine learning"
         │
         ▼
@@ -218,41 +199,40 @@ Embeddings convert text into numerical vectors that represent semantic meaning.
         │
         ▼
      Vector Space
-Concepts
-Dense vectors
+```
 
-Semantic representation
+### Concepts
 
-Vector dimensions
+- Dense vectors
+- Semantic representation
+- Vector dimensions
+- Similarity
+- Cosine similarity
+- Euclidean distance
+- Dot product
+- Embedding models
+- Query embeddings
+- Document embeddings
 
-Similarity
+### Why embeddings matter
 
-Cosine similarity
-
-Euclidean distance
-
-Dot product
-
-Embedding models
-
-Query embeddings
-
-Document embeddings
-
-Why embeddings matter
 Keyword search asks:
 
-"Does this document contain these words?"
+> "Does this document contain these words?"
 
 Semantic search asks:
 
-"Does this document mean something similar to my query?"
+> "Does this document mean something similar to my query?"
 
-✂️ Chunking
+---
+
+# ✂️ Chunking
+
 Large documents cannot always be passed directly to an LLM.
 
 Chunking divides documents into smaller pieces before embedding and retrieval.
 
+```text
 Document
    │
    ▼
@@ -271,37 +251,37 @@ Chunking
         │
         ▼
    Vector Database
-Chunking concepts
-Fixed-size chunking
+```
 
-Character chunking
+### Chunking concepts
 
-Token-based chunking
+- Fixed-size chunking
+- Character chunking
+- Token-based chunking
+- Sentence chunking
+- Paragraph chunking
+- Recursive chunking
+- Chunk overlap
+- Semantic chunking
+- Metadata preservation
 
-Sentence chunking
+### Important trade-off
 
-Paragraph chunking
-
-Recursive chunking
-
-Chunk overlap
-
-Semantic chunking
-
-Metadata preservation
-
-Important trade-off
 Small chunks can improve retrieval precision but may lose context.
 
 Large chunks preserve context but can introduce irrelevant information.
 
-A good RAG system therefore treats chunk size and overlap as retrieval design decisions, not arbitrary constants.
+A good RAG system therefore treats **chunk size and overlap as retrieval design decisions**, not arbitrary constants.
 
-📖 RAG — Retrieval-Augmented Generation
+---
+
+# 📖 RAG — Retrieval-Augmented Generation
+
 RAG combines retrieval with generation.
 
 Instead of asking the LLM to answer only from its internal knowledge:
 
+```text
 User Question
       │
       ▼
@@ -315,7 +295,11 @@ Relevant Documents
       │
       ▼
     Answer
-Complete RAG Pipeline
+```
+
+## Complete RAG Pipeline
+
+```text
                  OFFLINE / INDEXING
                  ──────────────────
 
@@ -366,127 +350,99 @@ LLM
    │
    ▼
 Grounded Answer
-RAG topics
-Naive RAG
+```
 
-Semantic retrieval
+### RAG topics
 
-Top-K retrieval
+- Naive RAG
+- Semantic retrieval
+- Top-K retrieval
+- Metadata filtering
+- Hybrid search
+- Keyword + vector search
+- Reranking
+- Query rewriting
+- Multi-query retrieval
+- HyDE
+- Context compression
+- Parent-child retrieval
+- Self-query retrieval
+- Citation generation
+- Retrieval failure handling
 
-Metadata filtering
+---
 
-Hybrid search
+# 🗄️ Vector Databases
 
-Keyword + vector search
-
-Reranking
-
-Query rewriting
-
-Multi-query retrieval
-
-HyDE
-
-Context compression
-
-Parent-child retrieval
-
-Self-query retrieval
-
-Citation generation
-
-Retrieval failure handling
-
-🗄️ Vector Databases
 Learning how embeddings are stored and searched efficiently.
 
 Technologies explored / to explore:
 
-FAISS
+- FAISS
+- Chroma
+- Qdrant
+- Other vector stores
 
-Chroma
+### Concepts
 
-Qdrant
+- Collections
+- Vectors
+- Metadata
+- Similarity search
+- Top-K
+- Filtering
+- Indexing
+- Persistence
+- Approximate nearest-neighbor search
+- Hybrid retrieval
 
-Other vector stores
+---
 
-Concepts
-Collections
+# 🧪 RAG Evaluation
 
-Vectors
-
-Metadata
-
-Similarity search
-
-Top-K
-
-Filtering
-
-Indexing
-
-Persistence
-
-Approximate nearest-neighbor search
-
-Hybrid retrieval
-
-🧪 RAG Evaluation
 A RAG system should not be considered good simply because it produces fluent answers.
 
-Evaluation needs to measure retrieval quality and generation quality separately.
+Evaluation needs to measure **retrieval quality and generation quality** separately.
 
-Retrieval Evaluation
+## Retrieval Evaluation
+
 Questions include:
 
-Did we retrieve the correct document?
-
-Did we retrieve enough relevant context?
-
-Are irrelevant chunks being retrieved?
-
-Is the correct information ranked highly?
+- Did we retrieve the correct document?
+- Did we retrieve enough relevant context?
+- Are irrelevant chunks being retrieved?
+- Is the correct information ranked highly?
 
 Metrics/concepts:
 
-Precision
+- Precision
+- Recall
+- Hit Rate
+- Recall@K
+- Precision@K
+- MRR
+- NDCG
 
-Recall
+## Generation Evaluation
 
-Hit Rate
-
-Recall@K
-
-Precision@K
-
-MRR
-
-NDCG
-
-Generation Evaluation
 Questions include:
 
-Is the answer relevant?
-
-Is it supported by retrieved context?
-
-Is the model hallucinating?
-
-Does the answer actually answer the question?
+- Is the answer relevant?
+- Is it supported by retrieved context?
+- Is the model hallucinating?
+- Does the answer actually answer the question?
 
 Important dimensions:
 
-Faithfulness
+- Faithfulness
+- Answer relevance
+- Context relevance
+- Context recall
+- Groundedness
 
-Answer relevance
+### Evaluation mindset
 
-Context relevance
-
-Context recall
-
-Groundedness
-
-Evaluation mindset
+```text
 RAG Quality
     │
     ├── Retrieval Quality
@@ -497,11 +453,17 @@ RAG Quality
            ├── Did we use the context?
            ├── Is the answer relevant?
            └── Did we hallucinate?
-🤖 AI Agents
-Moving from simple LLM calls to systems that can decide when and how to use tools.
+```
+
+---
+
+# 🤖 AI Agents
+
+Moving from simple LLM calls to systems that can **decide when and how to use tools**.
 
 Basic agent loop:
 
+```text
 User
  │
  ▼
@@ -519,105 +481,85 @@ LLM
        │
        ▼
     Final Answer
-Agent concepts
-Tool calling
+```
 
-Function calling
+### Agent concepts
 
-Tool schemas
+- Tool calling
+- Function calling
+- Tool schemas
+- Tool descriptions
+- Automatic tool selection
+- Tool execution
+- Tool results
+- Agent loops
+- Planning
+- Memory
+- Multi-tool agents
+- Error recovery
+- Termination conditions
+- Iteration limits
 
-Tool descriptions
+### Bounded Agent Iterations
 
-Automatic tool selection
-
-Tool execution
-
-Tool results
-
-Agent loops
-
-Planning
-
-Memory
-
-Multi-tool agents
-
-Error recovery
-
-Termination conditions
-
-Iteration limits
-
-Bounded Agent Iterations
 Agents need a termination condition.
 
+```python
 MAX_ITERATIONS = 6
+```
+
 This prevents an agent from repeatedly calling tools when a task is impossible or when the model gets stuck.
 
 Benefits:
 
-Prevents infinite loops
+- Prevents infinite loops
+- Controls token usage
+- Reduces latency
+- Limits API calls
+- Controls cost
 
-Controls token usage
+---
 
-Reduces latency
+# 🛠️ Tools & APIs
 
-Limits API calls
-
-Controls cost
-
-🛠️ Tools & APIs
 The learning projects use practical APIs and developer tools.
 
 Examples include:
 
-LLM APIs
-
-Web search
-
-Weather APIs
-
-GitHub REST API
-
-Wikipedia API
-
-Calculator tools
-
-Vector databases
-
-Embedding APIs
+- LLM APIs
+- Web search
+- Weather APIs
+- GitHub REST API
+- Wikipedia API
+- Calculator tools
+- Vector databases
+- Embedding APIs
 
 The objective is to understand how external tools are connected to an LLM rather than treating the LLM as the entire application.
 
-🌐 AI Application Development
+---
+
+# 🌐 AI Application Development
+
 Building interfaces around AI systems.
 
 Areas covered:
 
-Flask
-
-FastAPI
-
-HTML / CSS / JavaScript
-
-Chat interfaces
-
-Streaming UI
-
-Tool-specific UI
-
-Loading states
-
-Error states
-
-API routes
-
-JSON responses
-
-Frontend/backend communication
+- Flask
+- FastAPI
+- HTML / CSS / JavaScript
+- Chat interfaces
+- Streaming UI
+- Tool-specific UI
+- Loading states
+- Error states
+- API routes
+- JSON responses
+- Frontend/backend communication
 
 Example architecture:
 
+```text
 Browser
    │
    ▼
@@ -634,56 +576,47 @@ LLM
    ├── GitHub
    ├── Wikipedia
    └── Calculator
-🔍 Observability
+```
+
+---
+
+# 🔍 Observability
+
 As AI applications become more complex, debugging requires visibility into every step.
 
 Learning areas:
 
-Logging
+- Logging
+- Tracing
+- Latency measurement
+- Token usage
+- Tool-call tracking
+- Retrieval traces
+- Error tracking
+- Prompt inspection
+- Evaluation datasets
 
-Tracing
+---
 
-Latency measurement
+# 💰 Cost & Performance Optimization
 
-Token usage
-
-Tool-call tracking
-
-Retrieval traces
-
-Error tracking
-
-Prompt inspection
-
-Evaluation datasets
-
-💰 Cost & Performance Optimization
 Important production considerations:
 
-Token reduction
-
-Context compression
-
-Smaller models where appropriate
-
-Caching
-
-Embedding reuse
-
-Efficient chunking
-
-Limiting retrieved documents
-
-Tool-call limits
-
-Streaming
-
-Rate-limit handling
-
-Retry strategies
+- Token reduction
+- Context compression
+- Smaller models where appropriate
+- Caching
+- Embedding reuse
+- Efficient chunking
+- Limiting retrieved documents
+- Tool-call limits
+- Streaming
+- Rate-limit handling
+- Retry strategies
 
 The objective is:
 
+```text
 Better Quality
      +
 Lower Cost
@@ -691,42 +624,38 @@ Lower Cost
 Lower Latency
      =
 Better AI Application
-🔐 AI Security & Reliability
+```
+
+---
+
+# 🔐 AI Security & Reliability
+
 Topics to explore:
 
-API key protection
+- API key protection
+- `.env`
+- Secret management
+- Prompt injection
+- Indirect prompt injection
+- Tool abuse
+- Input validation
+- Output validation
+- Rate limiting
+- Authentication
+- Authorization
+- Data leakage
+- Safe tool execution
+- Guardrails
 
-.env
+**Never commit secrets such as API keys or `.env` files to GitHub.**
 
-Secret management
+---
 
-Prompt injection
+# 🏗️ Project Structure
 
-Indirect prompt injection
-
-Tool abuse
-
-Input validation
-
-Output validation
-
-Rate limiting
-
-Authentication
-
-Authorization
-
-Data leakage
-
-Safe tool execution
-
-Guardrails
-
-Never commit secrets such as API keys or .env files to GitHub.
-
-🏗️ Project Structure
 The repository is organized around learning days/weeks and practical implementations.
 
+```text
 learning_ai/
 │
 ├── week1/
@@ -750,15 +679,21 @@ learning_ai/
 │       └── .gitignore
 │
 └── README.md
+```
+
 Each day contains focused experiments, notes, and implementations.
 
-🧩 Current Agent Project
+---
+
+# 🧩 Current Agent Project
+
 One of the projects in this repository is a multi-tool AI agent.
 
 The agent can reason about a user's request and select an appropriate tool.
 
 Example:
 
+```text
 "What is the weather in Bangalore?"
              │
              ▼
@@ -769,8 +704,11 @@ Example:
              │
              ▼
         Weather UI
+```
+
 Another example:
 
+```text
 "Find popular RAG projects on GitHub"
              │
              ▼
@@ -781,136 +719,104 @@ Another example:
              │
              ▼
       Repository UI
-The system is designed around tool descriptions + automatic tool selection, rather than manually routing every query with frontend keyword checks.
+```
 
-📈 Learning Progress
+The system is designed around **tool descriptions + automatic tool selection**, rather than manually routing every query with frontend keyword checks.
+
+---
+
+# 📈 Learning Progress
+
 This checklist will evolve as the repository grows.
 
-Foundations
-Python fundamentals
+### Foundations
 
-API basics
+- [x] Python fundamentals
+- [x] API basics
+- [x] JSON / Pydantic
+- [x] Environment variables
+- [x] Git / GitHub
+- [x] `uv` project management
 
-JSON / Pydantic
+### LLM Fundamentals
 
-Environment variables
+- [ ] Tokens
+- [ ] Context windows
+- [ ] Temperature
+- [ ] Streaming
+- [ ] Structured outputs
+- [ ] Function calling
 
-Git / GitHub
+### Prompt Engineering
 
-uv project management
+- [ ] Zero-shot
+- [ ] Few-shot
+- [ ] Prompt templates
+- [ ] Prompt chaining
+- [ ] ReAct
 
-LLM Fundamentals
-Tokens
+### Embeddings
 
-Context windows
+- [ ] Embedding fundamentals
+- [ ] Cosine similarity
+- [ ] Semantic search
+- [ ] Embedding models
 
-Temperature
+### RAG
 
-Streaming
+- [ ] Document loading
+- [ ] Document cleaning
+- [ ] Chunking
+- [ ] Chunk overlap
+- [ ] Embeddings
+- [ ] Vector database
+- [ ] Retrieval
+- [ ] Reranking
+- [ ] Query rewriting
+- [ ] Hybrid search
+- [ ] Advanced RAG
 
-Structured outputs
+### RAG Evaluation
 
-Function calling
+- [ ] Retrieval evaluation
+- [ ] Precision@K
+- [ ] Recall@K
+- [ ] MRR
+- [ ] NDCG
+- [ ] Faithfulness
+- [ ] Answer relevance
+- [ ] Context relevance
+- [ ] RAG evaluation framework
 
-Prompt Engineering
-Zero-shot
+### Agents
 
-Few-shot
+- [x] Tool-based agent
+- [x] Automatic tool selection
+- [x] Multi-tool architecture
+- [x] Tool-specific UI
+- [x] Iteration limit
+- [ ] Memory
+- [ ] Planning
+- [ ] Multi-agent systems
 
-Prompt templates
+### Production
 
-Prompt chaining
+- [ ] Observability
+- [ ] Tracing
+- [ ] Guardrails
+- [ ] Prompt injection defense
+- [ ] Evaluation pipeline
+- [ ] Cost optimization
+- [ ] Deployment
+- [ ] Monitoring
 
-ReAct
+---
 
-Embeddings
-Embedding fundamentals
+# 🎯 End Goal
 
-Cosine similarity
-
-Semantic search
-
-Embedding models
-
-RAG
-Document loading
-
-Document cleaning
-
-Chunking
-
-Chunk overlap
-
-Embeddings
-
-Vector database
-
-Retrieval
-
-Reranking
-
-Query rewriting
-
-Hybrid search
-
-Advanced RAG
-
-RAG Evaluation
-Retrieval evaluation
-
-Precision@K
-
-Recall@K
-
-MRR
-
-NDCG
-
-Faithfulness
-
-Answer relevance
-
-Context relevance
-
-RAG evaluation framework
-
-Agents
-Tool-based agent
-
-Automatic tool selection
-
-Multi-tool architecture
-
-Tool-specific UI
-
-Iteration limit
-
-Memory
-
-Planning
-
-Multi-agent systems
-
-Production
-Observability
-
-Tracing
-
-Guardrails
-
-Prompt injection defense
-
-Evaluation pipeline
-
-Cost optimization
-
-Deployment
-
-Monitoring
-
-🎯 End Goal
 The long-term goal of this repository is to progress from:
 
+```text
 LLM API
    ↓
 Prompt Engineering
@@ -928,42 +834,38 @@ Tool Calling
 Agents
    ↓
 Production AI Systems
+```
+
 and eventually build complete AI applications that are:
 
-Useful
+- **Useful**
+- **Grounded**
+- **Evaluated**
+- **Observable**
+- **Reliable**
+- **Cost-efficient**
+- **Production-ready**
 
-Grounded
+---
 
-Evaluated
+# 🧪 Philosophy
 
-Observable
-
-Reliable
-
-Cost-efficient
-
-Production-ready
-
-🧪 Philosophy
-Don't just learn frameworks. Understand what is happening underneath them.
+> **Don't just learn frameworks. Understand what is happening underneath them.**
 
 For every abstraction, the goal is to understand:
 
-What problem does it solve?
+1. What problem does it solve?
+2. How does it work?
+3. What happens internally?
+4. What are its limitations?
+5. How can it be evaluated?
+6. When should it be used?
+7. When should it **not** be used?
 
-How does it work?
+---
 
-What happens internally?
+## 📌 Repository
 
-What are its limitations?
+**Learning Generative AI — from fundamentals to AI agents and production RAG systems.**
 
-How can it be evaluated?
-
-When should it be used?
-
-When should it not be used?
-
-📌 Repository
-Learning Generative AI — from fundamentals to AI agents and production RAG systems.
-
-Built through continuous experimentation, implementation, debugging, and evaluation
+Built through continuous experimentation, implementation, debugging, and evaluation.
