@@ -3,7 +3,9 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/week1/day1/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/week4/day17/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/week4/day18/.venv" />
     </content>
     <orderEntry type="jdk" jdkName="uv (learning_ai)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
